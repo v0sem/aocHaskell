@@ -1,6 +1,7 @@
 module Main where
 
-import Days.Day1_23 (day, dayTwo)
+import Days.Y2023.Day1 (day, dayTwo)
+import System.IO (hFlush, stdout)
 
 main :: IO ()
 main = do
@@ -8,7 +9,8 @@ main = do
   dayInput <- getLine
   f <- readFile ("data/day" ++ dayInput ++ ".txt")
   putStrLn ("Hither shall be thine output: " ++ show (day (lines f)))
-  putStrLn "Is the second part completed m'lord? [y/n]"
+  putStr "Is the second part completed m'lord? [y/N] "
+  hFlush stdout
   yes <- getLine
   if yes == "y" then putStrLn ("And thus here it is: " ++ show (dayTwo (lines f)))
     else putStrLn "Then we are done here."

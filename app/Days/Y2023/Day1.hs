@@ -1,4 +1,4 @@
-module Days.Day1_23 where
+module Days.Y2023.Day1 where
 
 import Data.Char (digitToInt, isDigit)
 import Data.List (isPrefixOf)

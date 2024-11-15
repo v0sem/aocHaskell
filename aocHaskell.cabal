@@ -11,7 +11,7 @@ cabal-version:      3.0
 --   http://haskell.org/cabal/users-guide/
 --
 -- The name of the package.
-name:               aoc2024
+name:               aocHaskell
 
 -- The package version.
 -- See the Haskell package versioning policy (PVP) for standards
@@ -20,10 +20,10 @@ name:               aoc2024
 -- PVP summary:     +-+------- breaking API changes
 --                  | | +----- non-breaking API additions
 --                  | | | +--- code changes with no API change
-version:            0.1.0.0
+version:            0.1.1.0
 
 -- A short (one-line) description of the package.
-synopsis:           Advent of Code solutions for 2024
+synopsis:           Advent of Code solutions for various years
 
 -- A longer description of the package.
 description:        Happy Holidays, ho! ho! ho!
@@ -57,7 +57,7 @@ extra-doc-files:    CHANGELOG.md
 common warnings
     ghc-options: -Wall
 
-executable aoc2024
+executable aocHaskell
     -- Import common warning flags.
     import:           warnings
 
@@ -65,7 +65,7 @@ executable aoc2024
     main-is:          Main.hs
 
     -- Modules included in this executable, other than Main.
-    other-modules:    Days.Day1_23
+    other-modules:    Days.Y2023.Day1
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
