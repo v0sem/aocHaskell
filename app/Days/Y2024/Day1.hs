@@ -23,5 +23,5 @@ numOcc x = length . filter (== x)
 
 dayTwo :: [String] -> Int
 dayTwo inputLines = sum (map
-                         (\x -> x * (numOcc x (getListR inputLines)))
+                         (\x -> x * numOcc x (getListR inputLines))
                          (getListL inputLines))
