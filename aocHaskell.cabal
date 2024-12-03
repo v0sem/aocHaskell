@@ -73,7 +73,8 @@ executable aocHaskell
     -- other-extensions:
 
     -- Other library packages from which modules are imported.
-    build-depends:    base==4.*
+    build-depends:    base==4.*,
+                      split==0.2.5
 
     -- Directories containing source files.
     hs-source-dirs:   app
