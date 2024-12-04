@@ -68,6 +68,8 @@ executable aocHaskell
     other-modules:    Days.Y2023.Day1
                       Days.Y2024.Day1
                       Days.Y2024.Day2
+                      Days.Y2024.Day3
+                      Days.Y2024.Day4
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
