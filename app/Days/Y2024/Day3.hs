@@ -2,7 +2,6 @@ module Days.Y2024.Day3 where
 
 import Data.Char (isDigit)
 import Data.List (isPrefixOf, findIndex)
-import Debug.Trace (trace)
 
 isAllDigit :: String -> Bool
 isAllDigit = all isDigit
