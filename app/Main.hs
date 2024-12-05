@@ -1,6 +1,6 @@
 module Main where
 
-import Days.Y2024.Day2 (day, dayTwo)
+import Days.Y2024.Day3 (day, dayTwo)
 import System.IO (hFlush, stdout)
 
 main :: IO ()
