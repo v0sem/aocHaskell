@@ -1,8 +1,8 @@
 module Days.Y2024.Day4 where
 
 isXMAS :: [String] -> String -> (Int, Int) -> (Int, Int) -> Bool
-
-isXMAS matrix "Start" (x, y) (dirx, diry)
+isXMAS matrix letter (x, y) (dirx, diry)
+  | letter == 'X' && matrix!!(x+)
 
 day :: [String] -> Int
 day _ = 0
