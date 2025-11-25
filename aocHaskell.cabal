@@ -77,7 +77,14 @@ executable aocHaskell
 
     -- Other library packages from which modules are imported.
     build-depends:    base==4.*,
-                      split==0.2.5
+                      split==0.2.5,
+                      http-client==0.7.*,
+                      http-conduit,
+                      http-types,
+                      bytestring,
+                      flatparse,
+                      utf8-string,
+                      text,
 
     -- Directories containing source files.
     hs-source-dirs:   app

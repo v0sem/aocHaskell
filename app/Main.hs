@@ -1,16 +1,35 @@
 module Main where
 
-import Days.Y2024.Day4 (day, dayTwo)
+import Days.Y2024.Day5 (day, dayTwo)
 import System.IO (hFlush, stdout)
+import Network.HTTP.Conduit
+import Network.HTTP.Types.Header
+import qualified Data.Text.Encoding as TE
+import qualified Data.Text as T
+import qualified Data.ByteString as BL
+import qualified Data.ByteString.Char8 as B
+
+getInput :: String -> String -> IO [String]
+getInput daystr year = do
+  initReq <- parseRequest ("https://adventofcode.com/" ++ year ++ "/day/" ++ daystr ++ "/input")
+  let sessionCookie = "session=53616c7465645f5f86c21a4f2884cf3576773a7606da8efa24c9868f18c9181bbf5d13d13fc664468b7aab705108aae5b08b2870468d12bc83d73b63ff58933d"
+      req = initReq { requestHeaders = (hCookie, B.pack sessionCookie) : requestHeaders initReq }
+  manager <- newManager tlsManagerSettings
+  response <- httpLbs req manager
+  let text = TE.decodeUtf8 (BL.toStrict $ responseBody response)
+  return $ map T.unpack (T.lines text)
 
 main :: IO ()
 main = do
   putStrLn "What day do you want to parse?"
   dayInput <- getLine
-  f <- readFile ("data/day" ++ dayInput ++ ".txt")
-  putStrLn ("Hither shall be thine output: " ++ show (day (lines f)))
+  putStrLn "What year"
+  yearInput <- getLine
+  putStrLn "hmmmm"
+  file <- getInput dayInput yearInput
+  putStrLn ("Hither shall be thine output: " ++ show (day file))
   putStr "Is the second part completed m'lord? [y/N] "
   hFlush stdout
   yes <- getLine
-  if yes == "y" then putStrLn ("And thus here it is: " ++ show (dayTwo (lines f)))
+  if yes == "y" then putStrLn ("And thus here it is: " ++ show (dayTwo file))
     else putStrLn "Then we are done here."
