@@ -1,6 +1,6 @@
 module Main where
 
-import Days.Y2024.Day5 (day, dayTwo)
+import Days.Y2025.Day1 (day, dayTwo)
 import System.IO (hFlush, stdout)
 import Network.HTTP.Conduit
 import Network.HTTP.Types.Header
@@ -25,7 +25,6 @@ main = do
   dayInput <- getLine
   putStrLn "What year"
   yearInput <- getLine
-  putStrLn "hmmmm"
   file <- getInput dayInput yearInput
   putStrLn ("Hither shall be thine output: " ++ show (day file))
   putStr "Is the second part completed m'lord? [y/N] "
