@@ -12,7 +12,7 @@ import qualified Data.ByteString.Char8 as B
 getInput :: String -> String -> IO [String]
 getInput daystr year = do
   initReq <- parseRequest ("https://adventofcode.com/" ++ year ++ "/day/" ++ daystr ++ "/input")
-  let sessionCookie = "session=53616c7465645f5f86c21a4f2884cf3576773a7606da8efa24c9868f18c9181bbf5d13d13fc664468b7aab705108aae5b08b2870468d12bc83d73b63ff58933d"
+  let sessionCookie = "session=53616c7465645f5f0c3e7f507d56ae8b36045311ca2f8e22317bc41908657640b1baf8c88cac4d8df97a30ac46a0735c8821a8a5731788fe697f5be1918a9622"
       req = initReq { requestHeaders = (hCookie, B.pack sessionCookie) : requestHeaders initReq }
   manager <- newManager tlsManagerSettings
   response <- httpLbs req manager
