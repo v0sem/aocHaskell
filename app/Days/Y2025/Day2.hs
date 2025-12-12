@@ -25,18 +25,17 @@ getAllBaddies :: Int -> Int -> [Int]
 getAllBaddies x y = if x > y then [] else
                         (if isItDouble (show x) then x else 0):getAllBaddies (x+1) y 
 
-getAllBaddiesTwo :: Int -> Int -> [Int]
-getAllBaddiesTwo x y = if x > y then [] else
-                        (if or (repeatingOfCourse (show x) (length (show x) `div` 2)) then x else 0):getAllBaddiesTwo (x+1) y 
+getAllBaddiesTwoElectricBoogaloo :: Int -> Int -> [Int]
+getAllBaddiesTwoElectricBoogaloo x y = if x > y then [] else
+                        (if or (repeatingOfCourse (show x) (length (show x) `div` 2)) then x else 0):getAllBaddiesTwoElectricBoogaloo (x+1) y
 
 rangeToBaddies :: String -> [Int]
 rangeToBaddies range = let fromTo = splitOnChar (=='-') range in
                         getAllBaddies (read $ head fromTo) (read $ last fromTo)
 
-
 rangeToBaddiesTwo :: String -> [Int]
 rangeToBaddiesTwo range = let fromTo = splitOnChar (=='-') range in
-                        getAllBaddiesTwo (read $ head fromTo) (read $ last fromTo)
+                        getAllBaddiesTwoElectricBoogaloo (read $ head fromTo) (read $ last fromTo)
 
 day :: [String] -> Int
 day input = sum $ concatMap rangeToBaddies (splitOnChar (==',') $ head input)
