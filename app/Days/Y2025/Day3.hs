@@ -31,8 +31,9 @@ removePetites l maxnums
   | otherwise = removePetites (deleteNth (getFirstPos l (getSmallBoy l)) l) maxnums
 
 getNums :: [Int] -> Int -> [Int]
+getNums _ 0 = []
 getNums l numnums = let num = getBigBoy (take (length l-(numnums-1)) l) in
-                      removePetites (drop (getFirstPos l num) l) numnums
+                      num : getNums (drop ((getFirstPos l num) + 1) l) (numnums-1)
 
 numsToNum :: [Int] -> Int
 numsToNum [] = 0
@@ -44,5 +45,5 @@ strToNumList = map digitToInt
 day :: [String] -> Int
 day input = sum $ map (getNum . strToNumList) input
 
-dayTwo :: [String] -> [Int]
-dayTwo input = getNums (map strToNumList input)
+dayTwo :: [String] -> Int
+dayTwo input = sum $ map (\x -> numsToNum $ reverse $ getNums (strToNumList x) 12) input
