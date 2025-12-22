@@ -74,6 +74,7 @@ executable aocHaskell
                       Days.Y2025.Day1
                       Days.Y2025.Day2
                       Days.Y2025.Day3
+                      Days.Y2025.Day4
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:

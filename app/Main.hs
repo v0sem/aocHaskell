@@ -1,6 +1,6 @@
 module Main where
 
-import Days.Y2025.Day3 (day, dayTwo)
+import Days.Y2025.Day4 (day, dayTwo)
 import System.IO (hFlush, stdout)
 import Network.HTTP.Conduit
 import Network.HTTP.Types.Header
