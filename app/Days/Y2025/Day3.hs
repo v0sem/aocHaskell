@@ -33,7 +33,7 @@ removePetites l maxnums
 getNums :: [Int] -> Int -> [Int]
 getNums _ 0 = []
 getNums l numnums = let num = getBigBoy (take (length l-(numnums-1)) l) in
-                      num : getNums (drop ((getFirstPos l num) + 1) l) (numnums-1)
+                      num : getNums (drop (getFirstPos l num + 1) l) (numnums-1)
 
 numsToNum :: [Int] -> Int
 numsToNum [] = 0
